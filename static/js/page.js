@@ -1,0 +1,62 @@
+$(document).ready(function() {	
+   startTime();
+	
+   $('.station').bind('tap',function() {  
+	
+		var src=$(this).attr('src');
+		
+		var myRegexp = /.+\/btn-(.+)\.png$/g;
+		var match = myRegexp.exec(src);
+		var station = match[1];
+		
+		var area=$(this).parent().parent().text().trim();
+		
+		var ip;
+		if (area==='BATHROOM'){
+			ip="192.168.178.31"
+		}
+		else if (area==='LIVINGROOM'){
+			ip="192.168.178.37"
+		}
+		else {
+			return;
+		}
+		
+		$.ajax('http://localhost:5000/tune?target='+ip+'&station='+station);
+		
+   });
+   
+   $('.boxheader').bind('tap',function() {  
+	
+		var area=$(this).text().trim();
+		
+		var ip;
+		if (area==='BATHROOM'){
+			ip="192.168.178.31"
+		}
+		else if (area==='LIVINGROOM'){
+			ip="192.168.178.37"
+		}
+		else {
+			return;
+		}
+		
+		$.ajax('http://localhost:5000/stop?target='+ip);
+		
+   });
+});
+
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('time').innerHTML = h + ":" + m;
+    var t = setTimeout(startTime, 15000);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}

@@ -1,0 +1,207 @@
+@charset "utf-8";
+/* CSS Document */
+
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 div,
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 span,
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 br,
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 img,
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 a,
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 form,
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 input,
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 button,
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 label
+{
+  margin: 0;
+  padding: 0;
+  float: none;
+  clear: none;
+  border: 0;
+  outline: 0;
+  font-weight: normal;
+  font-style: inherit;
+  font-family: inherit;
+  font-variant: inherit;
+  vertical-align: baseline;
+  width: auto;
+  height: auto;
+  position: static;
+  top: 0;
+  left: 0;
+  display: inline;
+  line-height: normal;
+  position: static;
+  text-align: left;
+}
+
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255
+{
+  width: 170px;
+  height: 120px;
+  padding: 5px 5px;
+  background-repeat: no-repeat;
+  /* user */
+  font-family: 'arial';
+  color: #ffffff;
+  background-color: #000000;
+  overflow: hidden;
+  position: relative;
+}
+
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 a
+{
+  text-decoration: none;
+  color: #ffffff;
+}
+
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 #wettercom-title
+{
+  margin-top: -15px;
+  z-index:5;
+  background-color: #000000;
+  font-family: sans-serif;
+  padding-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  max-width: 170px;
+  max-height: 30px;
+  display: block;
+  overflow: hidden;
+}
+
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 #wettercom-citylink, #wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 #wettercom-adminlink
+{
+  font-size: 13px;
+  font-weight: bold;
+}
+
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 #wettercom-woys-8680d91cfbe489daf7e7d4ca73c67255
+{
+  display: block;
+  font-size: 12px;
+  overflow: hidden;
+  margin: 5px 0px;
+  padding: 5px 0px;
+  border-bottom: 1px solid #666666;
+  border-top: 1px solid #666666;
+  height: 70px;
+}
+
+* html #wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 #wettercom-woys-8680d91cfbe489daf7e7d4ca73c67255
+{
+  margin: 2px 0px;
+  padding: 2px 0px;
+}
+
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 #wettercom-brand
+{
+  font-size: 11px;
+  text-align: center;
+  display: block;
+  position: absolute;
+  top: 120px;
+  height: 20px;
+  width: 100%;
+  left: 0;
+}
+
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 #wettercom-logo
+{
+  width: 70px;
+  height: 14px;
+  position: relative;
+  top: 3px;
+}
+
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 #wettercom-more
+{
+  padding-right: 3px;
+}
+
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 #wettercom-clear
+{
+  clear: both;
+}
+
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 #wettercom-forecast
+{
+  position: relative;
+}
+
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 #wettercom-forecast #text
+{
+  width: 100%;
+  font-size: 12px;
+  padding-top: 5px;
+  display: block;
+  position: relative;
+}
+
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 #wettercom-forecast #temp
+{
+    font-size: 16px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    text-align: right;
+}
+
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 #wettercom-forecast #forecast
+{
+    font-size: 12px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 #wettercom-forecast #values
+{
+  display: block;
+  font-size: 11px;
+  width: 130px;
+  position: absolute;
+  top: 42px;
+  left: 0px
+}
+
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 #wettercom-icons
+{
+    position: absolute;
+    left: 110px;
+    top: 30px;
+}
+
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 #wettercom-icons img
+{
+  width: 54px;
+  height: 38px;
+  display: block;
+}
+
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 #warnings
+{
+    position: absolute;
+    top: 25px;
+    left: 0;
+    width: 120px;
+}
+
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 #wettercom-warning-icon
+{
+    height: auto;
+    width: 14px;
+    position: relative;
+    top: 1px;
+}
+
+#wettercom-button-8680d91cfbe489daf7e7d4ca73c67255 #wettercom-warning-text
+{
+    color: #EA0000 !important;
+    text-decoration: underline;
+    font-size: 12px;
+}

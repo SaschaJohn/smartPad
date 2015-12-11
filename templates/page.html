@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link id="wettercom-css" href="{{ url_for('static', filename='css/wetter.css') }}" rel="stylesheet" type="text/css" />
+<link id="style-css" href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.mobile-1.4.5.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/page.js') }}"></script>
+<script>
+	
+</script>
+</head>
+<body>
+
+	<div id="main">
+		<div id="rcorners2">
+			<div class="boxheader">BATHROOM</div>
+				<div class=".content">
+					<img class="station" src="{{ url_for('static', filename='img/btn-eldoradio.png') }}"/>
+					<img class="station" src="{{ url_for('static', filename='img/btn-xfm.png') }}" />
+					<img class="station" src="{{ url_for('static', filename='img/btn-wdr5.png') }}" />
+				</div>
+			
+		</div>
+
+		
+	
+	<div id="rcorners2" style="clear:both;">
+		<div class="boxheader">LIVINGROOM</div>
+		<div class=".content">
+				<img class="station" src="{{ url_for('static', filename='img/btn-eldoradio.png') }}" />
+				<img class="station" src="{{ url_for('static', filename='img/btn-xfm.png') }}" />
+				<img class="station" src="{{ url_for('static', filename='img/btn-wdr5.png') }}" />
+			</div>
+	</div>
+	
+	</div>
+	<div id="sidebar">
+		<div id="wetter" style="clear:both;">
+			<div class="boxheader">DORTMUND</div>
+			<!-- wetter.com button 180x150-->
+			<div id="wettercom-button-8680d91cfbe489daf7e7d4ca73c67255">  
+				<div id="wettercom-woys-8680d91cfbe489daf7e7d4ca73c67255"></div>
+				<div id="wettercom-clear">
+				<script type="text/javascript" src="http://www.wetter.com/js/woys3.1.js?116127,8680d91cfbe489daf7e7d4ca73c67255"></script>
+			</div>
+		</div>
+		<div id="zeit">
+			<div class="boxheader">UHRZEIT</div>
+			<div id="time"></div>
+		</div>
+	</div>
+	</div>
+	
+	
+
+	
+	
+</body>
+</html>
