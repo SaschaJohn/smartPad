@@ -1,0 +1,6 @@
+SPEAKER_IP = '192.168.178.37'
+ROVI_API_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXX'
+ROVI_SHARED_SECRET = 'XXXXXXXXXX'
+URL=u'https://owa/EWS/Exchange.asmx'
+USER=u'domain\\user'
+PASS=u'pass'

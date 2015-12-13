@@ -5,9 +5,14 @@ from pyexchange import Exchange2010Service, ExchangeNTLMAuthConnection
 from pytz import timezone
 from datetime import datetime
 
-URL = u'https://owa.thyssenkrupp.info/EWS/Exchange.asmx'
-USERNAME = u'tkagit\\10316197'
-PASSWORD = u"17.anderes"
+from flask import Flask
+app = Flask(__name__)
+
+app.config.from_pyfile('../settings.py')
+
+URL = app.config['URL']
+USERNAME = app.config['USER']
+PASSWORD = app.config['PASS']
 
 # Set up the connection to Exchange
 connection = ExchangeNTLMAuthConnection(url=URL,username=USERNAME,password=PASSWORD)
