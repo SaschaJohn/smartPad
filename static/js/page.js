@@ -1,6 +1,6 @@
 $(document).ready(function() {	
    startTime();
-	
+	$('#message').hide();
    $('.station').bind('tap',function() {  
 	
 		var src=$(this).attr('src');
@@ -24,6 +24,22 @@ $(document).ready(function() {
 		
 		$.ajax('http://localhost:5000/tune?target='+ip+'&station='+station);
 		
+   });
+   
+   $('.newMsg').bind('tap',function() {     
+		  
+		  $('#message').css({
+		  position: 'fixed',
+		  top: 0,
+		  left: 0,
+		  width: '100%',
+		  height: '100%',
+		  zIndex: 701,
+		  'background-image': 'url(static/img/postit.png)',
+		  'background-repeat':'no-repeat'
+
+		});
+		$('#message').show();
    });
    
    $('.boxheader').bind('tap',function() {  
