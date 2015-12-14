@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+<script type="text/javascript">
+$(function() {
+    var ele   = $('#scroll');
+    var speed = 125, scroll = 3, scrolling;
+    
+	upDown();
+	
+	setInterval(function(){ 
+		console.log('timer');
+		changeImage();
+		upDown();
+		
+	}, 25000);
+    
+});
+function changeImage(){
+
+	var imgSrc = $('#scrollimage').attr('src');
+	var i = imgSrc.replace(".jpg","");
+	
+	i = parseInt(i)+1;
+	if (i>4){
+		i=1;
+	}
+	$('#scrollimage').attr('src',i+'.jpg');
+	
+
+}
+
+function upDown(){
+	$('#scroll').animate({
+    scrollTop: $('#scroll').get(0).scrollHeight
+}, 10000);
+
+$('#scroll').animate({
+    scrollTop: -$('#scroll').get(0).scrollHeight
+}, 9000);
+}
+
+
+
+</script>
+<style type="text/css">
+<!--
+div#scroll {
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    padding: 4px;
+    margin-bottom: 20px;
+}
+-->
+</style>
+</head>
+<body>
+
+<div id="scroll">
+    <img id="scrollimage" src="1.jpg">
+</div>
+
+<a href="#" id="scroll-down">Down</a> - <a href="#" id="scroll-up">Up</a>
+
+</body>
+</html>
