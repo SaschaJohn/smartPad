@@ -10,11 +10,9 @@ $(function() {
 	upDown();
 	
 	setInterval(function(){ 
-		console.log('timer');
-		changeImage();
 		upDown();
 		
-	}, 25000);
+	}, 15000);
     
 });
 function changeImage(){
@@ -28,17 +26,17 @@ function changeImage(){
 	}
 	$('#scrollimage').attr('src',i+'.jpg');
 	
-
+	
 }
 
 function upDown(){
 	$('#scroll').animate({
     scrollTop: $('#scroll').get(0).scrollHeight
-}, 10000);
+}, 12000);
 
 $('#scroll').animate({
     scrollTop: -$('#scroll').get(0).scrollHeight
-}, 9000);
+}, 10000, changeImage);
 }
 
 
