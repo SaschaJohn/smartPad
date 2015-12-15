@@ -8,6 +8,7 @@
 <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.mobile-1.4.5.min.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/page.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/canvas.js') }}"></script>
 <script>
 	
 </script>
@@ -53,7 +54,13 @@
 		</div>
 		<div id="zeit">
 			<div class="boxheader newMsg">MESSAGES</div>
-			<div id="message"></div>
+			<div id="message">
+				<canvas id="can" width="1024px" height="768px"></canvas>
+				<div style="position:absolute;top:50%;right:0;float:right;background-color:#FFFFFF;">
+					<img height="64" width="64" src="{{ url_for('static', filename='img/save.png') }}" /><br>
+					<img id="trash" height="64" width="64" src="{{ url_for('static', filename='img/trash.png') }}" />
+				</div>
+			</div>
 		</div>
 	</div>
 	</div>

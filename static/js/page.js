@@ -1,5 +1,6 @@
 $(document).ready(function() {	
    startTime();
+   initCanvas();
 	$('#message').hide();
    $('.station').bind('tap',function() {  
 	
@@ -23,6 +24,12 @@ $(document).ready(function() {
 		}
 		
 		$.ajax('http://localhost:5000/tune?target='+ip+'&station='+station);
+		
+   });
+   
+   $('#trash').bind('tap',function() {  
+	
+		$('#message').hide();
 		
    });
    
