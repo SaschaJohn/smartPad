@@ -14,16 +14,16 @@ function initCanvas() {
     w = canvas.width;
     h = canvas.height;
 
-    canvas.addEventListener("mousemove", function (e) {
+    canvas.addEventListener("touchmove", function (e) {
         findxy('move', e)
     }, false);
-    canvas.addEventListener("mousedown", function (e) {
+    canvas.addEventListener("touchstart", function (e) {
         findxy('down', e)
     }, false);
     canvas.addEventListener("mouseup", function (e) {
         findxy('up', e)
     }, false);
-    canvas.addEventListener("mouseout", function (e) {
+    canvas.addEventListener("touchend", function (e) {
         findxy('out', e)
     }, false);
 }
