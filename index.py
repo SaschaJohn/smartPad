@@ -94,6 +94,10 @@ def index():
 @app.route("/page")
 def page():
     return render_template('page.html')
+    
+@app.route("/pad")
+def page():
+    return render_template('pad.html')
 	
 @app.route("/tune")
 def tune():
