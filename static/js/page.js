@@ -29,6 +29,9 @@ $(document).ready(function() {
    
    $('#trash').bind('tap',function() {  
 	
+        canvas = document.getElementById('can');
+        ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 		$('#message').hide();
 		
    });
