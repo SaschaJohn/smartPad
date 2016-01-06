@@ -17,6 +17,7 @@ function initCanvas() {
 
 
     $( '#can' ).on("vmousemove", function (e) {
+        e.preventDefault();
         findxy('move', e)
     });
     $( '#can' ).on("vmousedown", function (e) {
