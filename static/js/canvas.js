@@ -14,18 +14,20 @@ function initCanvas() {
     w = canvas.width;
     h = canvas.height;
 
-    canvas.addEventListener("touchmove", function (e) {
+
+
+    $( '#can' ).on("vmousemove", function (e) {
         findxy('move', e)
-    }, false);
-    canvas.addEventListener("touchstart", function (e) {
+    });
+    $( '#can' ).on("vmousedown", function (e) {
         findxy('down', e)
-    }, false);
-    canvas.addEventListener("mouseup", function (e) {
+    });
+    $( '#can' ).on("vmouseup", function (e) {
         findxy('up', e)
-    }, false);
-    canvas.addEventListener("touchend", function (e) {
+    });
+    $( '#can' ).on("vmouseout", function (e) {
         findxy('out', e)
-    }, false);
+    });
 }
 
 function color(obj) {
