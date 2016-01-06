@@ -45,7 +45,7 @@ $(document).ready(function() {
 		  width: '100%',
 		  height: '100%',
 		  zIndex: 701,
-		  'background-image': 'url(static/img/postit.png)',
+		  'background-image': 'url(static/img/paper.png)',
 		  'background-repeat':'no-repeat'
 
 		});
