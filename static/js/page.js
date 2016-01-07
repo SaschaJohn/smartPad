@@ -38,6 +38,20 @@ $(document).ready(function() {
 		
    });
    
+   //canvas save
+   $('#save').bind('tap',function() {  
+	
+        canvas = document.getElementById('can');
+		var dataUrl = canvas.toDataURL();
+        var filename = Date.now() + '.png';
+        dataUrl = dataUrl.replace('data:image/png;base64,','');
+        ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        $.post( "http://localhost:5000/save", { dataUrl: dataUrl, filename: filename} );
+		$('#message').hide();
+        
+   });
+   
    $('.newMsg').bind('tap',function() {     
 		  
 		  $('#message').css({

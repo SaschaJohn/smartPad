@@ -1,10 +1,10 @@
 import time
 import hashlib
 import json
-
 import requests
-from flask import Flask, render_template, url_for, request
 
+from binascii import a2b_base64
+from flask import Flask, render_template, url_for, request
 from soco import SoCo
 
 app = Flask(__name__)
@@ -112,7 +112,18 @@ def tune():
     elif station == 'wdr5':
         sonos.play_uri('x-rincon-mp3radio://wdr-5.akacast.akamaistream.net/7/41/119439/v1/gnl.akacast.akamaistream.net/wdr-5')
     return 'Ok'
-	
+
+@app.route("/save", methods = ['POST'])
+def save():
+    data = request.form.get("dataUrl")
+    filename = request.form.get("filename")
+    binary_data = a2b_base64(data)
+    fd = open(filename, 'wb')
+    fd.write(binary_data)
+    fd.close()
+    return 'Ok'
+
+    
 @app.route("/stop")
 def stop():
     target = request.args.get('target')
