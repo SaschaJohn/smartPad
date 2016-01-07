@@ -1,6 +1,8 @@
 $(document).ready(function() {	
    startTime();
-   initCanvas();
+   //initCanvas();
+   canvas   = document.getElementById('can');
+   signaturePad = new SignaturePad(canvas);
 	$('#message').hide();
    $('.station').bind('tap',function() {  
 	
