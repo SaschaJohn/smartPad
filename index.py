@@ -4,7 +4,7 @@ import json
 import requests
 
 from binascii import a2b_base64
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request, send_file
 from soco import SoCo
 
 app = Flask(__name__)
@@ -122,6 +122,10 @@ def save():
     fd.write(binary_data)
     fd.close()
     return 'Ok'
+
+@app.route("/getMessages")
+def getMessages():
+    return send_file('testFile.png', mimetype='image/png')
 
     
 @app.route("/stop")

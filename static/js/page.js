@@ -1,9 +1,23 @@
+var messageBlinkId;
+
 $(document).ready(function() {	
    startTime();
    //initCanvas();
    canvas   = document.getElementById('can');
    signaturePad = new SignaturePad(canvas);
-	$('#message').hide();
+   $('#message').hide();
+   $('#messageNew').hide();
+   
+   initMessageShowTap();
+   
+   //close new message
+   $('#messageShowClose').bind('tap',function() {
+       $('#messageShow').hide();
+       window.clearInterval(messageBlinkId);    
+       $('#imgMessageNew').remove();  
+   });   
+   
+   
    $('.station').bind('tap',function() {  
 	
 		var src=$(this).attr('src');
@@ -29,6 +43,8 @@ $(document).ready(function() {
 		
    });
    
+   
+   
    $('#trash').bind('tap',function() {  
 	
         canvas = document.getElementById('can');
@@ -49,8 +65,15 @@ $(document).ready(function() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         $.post( "http://localhost:5000/save", { dataUrl: dataUrl, filename: filename} );
 		$('#message').hide();
+        $('#messageNew').html('<img id="imgMessageNew" style="cursor:pointer;" height="128" width="128" src="static/img/message.png" />');
+        initMessageShowTap();
+        $('#messageNew').show();
+        messageBlinkId = setInterval(messageBlink, 1500);
+        
         
    });
+   
+   
    
    $('.newMsg').bind('tap',function() {     
 		  
@@ -87,6 +110,21 @@ $(document).ready(function() {
 		
    });
 });
+
+function initMessageShowTap(){
+    //show new message
+   $('#imgMessageNew').bind('tap',function() {       
+       $('#messageNew').hide();       
+       $('#messageShow').show();
+       $('#messageShowContent').html($('<img />').attr('src','/getMessages'));
+       
+       
+   });  
+}
+
+function messageBlink() {
+    $('#messageNew').fadeOut(1500).fadeIn(1500);    
+}
 
 function startTime() {
     var today = new Date();
