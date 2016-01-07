@@ -61,6 +61,17 @@
 					<img id="trash" height="64" width="64" src="{{ url_for('static', filename='img/trash.png') }}" />
 				</div>
 			</div>
+            <div id="messageNew">				
+			     <img id="imgMessageNew" style="cursor:pointer;" height="128" width="128" src="{{ url_for('static', filename='img/message.png') }}" />
+			</div>
+            <div id="messageShow" width="1024px" height="768px" 
+                 style="position: fixed; top: 0px; left: 0px; background-image: url(static/img/paper.png);background-repeat:no-repeat"
+            >	
+                <div id="messageShowContent" ></div>			
+			     <div style="position:absolute;top:50%;right:0;float:right;background-color:#000000;">
+					<img id="messageShowClose" height="64" width="64" src="{{ url_for('static', filename='img/trash.png') }}" />
+				</div>
+			</div>
 		</div>
 	</div>
 	</div>
