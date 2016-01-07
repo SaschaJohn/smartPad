@@ -11,8 +11,8 @@ body {
     border-radius: 25px;
     border: 2px solid #FFFFFF;
     padding: 20px; 
-    width: 400px;
-    height: 120px;   
+    width: 200px;
+    height: 80px;   
 	color: #FFFFFF;
 	margin-bottom: 15px;
 	margin-top: 10px;
@@ -23,7 +23,7 @@ body {
     border: 2px solid #FFFFFF;
     padding: 20px; 
     width: 180px;
-    height: 120px;   
+    height: 80px;   
 	color: #FFFFFF;
 	margin-bottom: 15px;
 	margin-top: 10px;
@@ -34,15 +34,25 @@ body {
     border: 2px solid #FFFFFF;
     padding: 20px; 
     width: 180px;
-    height: 120px;   
+    height: 80px;   
 	color: #FFFFFF;
 	margin-bottom: 15px;
-	margin-top: 30px;
+	margin-top: 39px;
 	margin-left: -20px;
 }
 
+#uhrzeit {
+    border-radius: 25px;
+    border: 2px solid #FFFFFF;
+    padding: 20px; 
+    width: 180px;
+    height: 80px;   
+	color: #FFFFFF;
+	margin-bottom: 15px;
+	margin-top: 10px;
+}
+
 #time {
-	padding-top: 20px;
 	text-align: center;
 	background-color: #000000;
 	font-family: sans-serif;
@@ -58,6 +68,11 @@ float:left;
 margin-left: 10px;
 }
 
+#sidebar2 {
+float:left;
+margin-left: 10px;
+}
+
 .boxheader {
 
 	margin-top: -30px;
@@ -66,6 +81,11 @@ margin-left: 10px;
 	background-color: #000000;
 	font-family: sans-serif;
 	cursor:pointer;
+}
+
+.station {
+    width: 64px;
+    height: 64px;
 }
 
 .content {

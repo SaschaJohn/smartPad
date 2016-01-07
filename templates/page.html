@@ -47,11 +47,7 @@
 				<div id="wettercom-clear">
 				<script type="text/javascript" src="http://www.wetter.com/js/woys3.1.js?116127,8680d91cfbe489daf7e7d4ca73c67255"></script>
 			</div>
-		</div>
-		<div id="zeit">
-			<div class="boxheader">UHRZEIT</div>
-			<div id="time"></div>
-		</div>
+		</div>		
 		<div id="zeit">
 			<div class="boxheader newMsg">MESSAGES</div>
 			<div id="message">
@@ -68,7 +64,7 @@
                  style="position: fixed; top: 0px; left: 0px; background-image: url(static/img/paper.png);background-repeat:no-repeat"
             >	
                 <div id="messageShowContent" ></div>			
-			     <div style="position:absolute;top:50%;right:0;float:right;background-color:#000000;">
+			     <div style="position:absolute;top:50%;right:0;float:right;background-color:#FFFFFF;">
 					<img id="messageShowClose" height="64" width="64" src="{{ url_for('static', filename='img/trash.png') }}" />
 				</div>
 			</div>
@@ -76,7 +72,12 @@
 	</div>
 	</div>
 	
-	
+	<div id="sidebar2">
+		<div id="uhrzeit">
+			<div class="boxheader">UHRZEIT</div>
+			<div id="time"></div>
+		</div>
+	</div>
 
 	
 	

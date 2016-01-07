@@ -36,8 +36,7 @@
 #wettercom-button-8680d91cfbe489daf7e7d4ca73c67255
 {
   width: 170px;
-  height: 120px;
-  padding: 5px 5px;
+  height: 80px;
   background-repeat: no-repeat;
   /* user */
   font-family: 'arial';
@@ -80,10 +79,6 @@
   display: block;
   font-size: 12px;
   overflow: hidden;
-  margin: 5px 0px;
-  padding: 5px 0px;
-  border-bottom: 1px solid #666666;
-  border-top: 1px solid #666666;
   height: 70px;
 }
 
