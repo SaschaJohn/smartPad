@@ -65,7 +65,7 @@ $(document).ready(function() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         $.post( "http://localhost:5000/save", { dataUrl: dataUrl, filename: filename} );
 		$('#message').hide();
-        $('#messageNew').html('<img id="imgMessageNew" style="cursor:pointer;" height="128" width="128" src="static/img/message.png" />');
+        $('#messageNew').html('<img id="imgMessageNew" style="cursor:pointer;" height="100" width="100" src="static/img/message.png" />');
         initMessageShowTap();
         $('#messageNew').show();
         messageBlinkId = setInterval(messageBlink, 1500);

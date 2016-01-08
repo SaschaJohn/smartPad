@@ -79,6 +79,10 @@ float:left;
 margin-left: 10px;
 }
 
+#messageNew {
+padding-left:45px;
+}
+
 .boxheader {
 
 	margin-top: -30px;
