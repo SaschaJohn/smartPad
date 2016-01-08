@@ -7,49 +7,50 @@ body {
     background-color: #000000;
     position: fixed;    
 }
-#rcorners2 {
-    border-radius: 25px;
+
+.box {
+	border-radius: 25px;
     border: 2px solid #FFFFFF;
-    padding: 20px; 
-    width: 200px;
-    height: 80px;   
-	color: #FFFFFF;
+    padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	color: #FFFFFF;	
+	width: 200px;
+	height: 90px;   
 	margin-bottom: 15px;
-	margin-top: 10px;
 }
 
-#wetter {
-    border-radius: 25px;
+.boxDouble {
+	border-radius: 25px;
     border: 2px solid #FFFFFF;
-    padding: 20px; 
-    width: 180px;
-    height: 80px;   
-	color: #FFFFFF;
+    padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	color: #FFFFFF;	
+	width: 200px;
+	height: 240px;   
 	margin-bottom: 15px;
-	margin-top: 10px;
 }
 
-#zeit {
-    border-radius: 25px;
+.boxThird {
+	border-radius: 25px;
     border: 2px solid #FFFFFF;
-    padding: 20px; 
-    width: 180px;
-    height: 80px;   
-	color: #FFFFFF;
+    padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	color: #FFFFFF;	
+	width: 454px;
+	height: 535px;   
 	margin-bottom: 15px;
-	margin-top: 39px;
-	margin-left: -20px;
+	position: absolute;
+	left: 0;
 }
 
-#uhrzeit {
-    border-radius: 25px;
-    border: 2px solid #FFFFFF;
-    padding: 20px; 
-    width: 180px;
-    height: 80px;   
-	color: #FFFFFF;
-	margin-bottom: 15px;
-	margin-top: 10px;
+.firstLine {    
+    margin-top: 10px;
 }
 
 #time {
@@ -69,6 +70,11 @@ margin-left: 10px;
 }
 
 #sidebar2 {
+float:left;
+margin-left: 10px;
+}
+
+#sidebar3 {
 float:left;
 margin-left: 10px;
 }

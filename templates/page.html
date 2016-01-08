@@ -9,46 +9,62 @@
 <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/page.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/signature_pad.js') }}"></script>
-<script>
-	
-</script>
+<script type="text/javascript" src="http://www.wetter.com/js/woys3.1.js?116127,8680d91cfbe489daf7e7d4ca73c67255"></script>
 </head>
 <body style="width:1024px; height:768px;">
 
 	<div id="main">
-		<div id="rcorners2">
+		<div class="box firstLine">
 			<div class="boxheader">BATHROOM</div>
 				<div class=".content">
 					<img class="station" src="{{ url_for('static', filename='img/btn-eldoradio.png') }}"/>
 					<img class="station" src="{{ url_for('static', filename='img/btn-xfm.png') }}" />
 					<img class="station" src="{{ url_for('static', filename='img/btn-wdr5.png') }}" />
-				</div>
-			
-		</div>
-
-		
-	
-	<div id="rcorners2" style="clear:both;">
-		<div class="boxheader">LIVINGROOM</div>
-		<div class=".content">
-				<img class="station" src="{{ url_for('static', filename='img/btn-eldoradio.png') }}" />
-				<img class="station" src="{{ url_for('static', filename='img/btn-xfm.png') }}" />
-				<img class="station" src="{{ url_for('static', filename='img/btn-wdr5.png') }}" />
-			</div>
-	</div>
-	
+				</div>			
+		</div>				
 	</div>
 	<div id="sidebar">
-		<div id="wetter" style="clear:both;">
-			<div class="boxheader">DORTMUND</div>
-			<!-- wetter.com button 180x150-->
+		<div class="box firstLine" style="clear:both;">
+			<div class="boxheader">LIVINGROOM</div>
+			<div class=".content">
+					<img class="station" src="{{ url_for('static', filename='img/btn-eldoradio.png') }}" />
+					<img class="station" src="{{ url_for('static', filename='img/btn-xfm.png') }}" />
+					<img class="station" src="{{ url_for('static', filename='img/btn-wdr5.png') }}" />
+				</div>
+		</div>
+		<div class="boxThird">
+			<div class="boxheader">GALERIE</div>			
+		</div>
+	</div>
+	</div>
+	
+	<div id="sidebar2">
+		<div id="uhrzeit" class="box firstLine">
+			<div class="boxheader">UHRZEIT</div>
+			<div id="time"></div>
+		</div>
+		<div id="uhrzeit" class="box">
+			<div class="boxheader">DORTMUND</div>	
 			<div id="wettercom-button-8680d91cfbe489daf7e7d4ca73c67255">  
-				<div id="wettercom-woys-8680d91cfbe489daf7e7d4ca73c67255"></div>
-				<div id="wettercom-clear">
-				<script type="text/javascript" src="http://www.wetter.com/js/woys3.1.js?116127,8680d91cfbe489daf7e7d4ca73c67255"></script>
+				<div id="wettercom-woys-8680d91cfbe489daf7e7d4ca73c67255"></div>								
 			</div>
-		</div>		
-		<div id="zeit">
+		</div>
+		<div id="uhrzeit" class="box">
+			<div class="boxheader">UHRZEIT</div>			
+		</div>
+		<div id="uhrzeit" class="box">
+			<div class="boxheader">UHRZEIT</div>			
+		</div>
+		<div id="uhrzeit" class="box">
+			<div class="boxheader">UHRZEIT</div>			
+		</div>
+	</div>
+    
+    <div id="sidebar3">
+		<div id="uhrzeit" class="boxDouble firstLine">
+			<div class="boxheader">TERMINE</div>			
+		</div>
+		<div id="uhrzeit" class="box">
 			<div class="boxheader newMsg">MESSAGES</div>
 			<div id="message">
 				<canvas id="can" width="1024px" height="768px"></canvas>
@@ -64,18 +80,10 @@
                  style="position: fixed; top: 0px; left: 0px; background-image: url(static/img/paper.png);background-repeat:no-repeat"
             >	
                 <div id="messageShowContent" ></div>			
-			     <div style="position:absolute;top:50%;right:0;float:right;background-color:#FFFFFF;">
+			    <div style="position:absolute;top:50%;right:0;float:right;background-color:#FFFFFF;">
 					<img id="messageShowClose" height="64" width="64" src="{{ url_for('static', filename='img/trash.png') }}" />
 				</div>
-			</div>
-		</div>
-	</div>
-	</div>
-	
-	<div id="sidebar2">
-		<div id="uhrzeit">
-			<div class="boxheader">UHRZEIT</div>
-			<div id="time"></div>
+			</div>			
 		</div>
 	</div>
 
