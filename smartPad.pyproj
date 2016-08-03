@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{f0c12eae-7de9-49c4-b8ec-8b23ae1743b8}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>index.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+    <InterpreterVersion />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="playground\1.jpg" />
+    <Content Include="playground\2.jpg" />
+    <Content Include="playground\3.jpg" />
+    <Content Include="playground\4.jpg" />
+    <Content Include="playground\draw.html" />
+    <Content Include="playground\scroll.html" />
+    <Content Include="requirements.txt" />
+    <Content Include="screenshot.png" />
+    <Content Include="static\css\bootstrap.min.css" />
+    <Content Include="static\css\main.css" />
+    <Content Include="static\css\signature-pad.css" />
+    <Content Include="static\css\style.css" />
+    <Content Include="static\css\wetter.css" />
+    <Content Include="static\img\blank.jpg" />
+    <Content Include="static\img\btn-eldoradio.png" />
+    <Content Include="static\img\btn-wdr5.png" />
+    <Content Include="static\img\btn-xfm.png" />
+    <Content Include="static\img\button.png" />
+    <Content Include="static\img\eldoradio.png" />
+    <Content Include="static\img\glyphicons-halflings-white.png" />
+    <Content Include="static\img\glyphicons-halflings.png" />
+    <Content Include="static\img\message.png" />
+    <Content Include="static\img\paper.png" />
+    <Content Include="static\img\postit.png" />
+    <Content Include="static\img\save.png" />
+    <Content Include="static\img\trash.png" />
+    <Content Include="static\img\wdr5.png" />
+    <Content Include="static\img\xfm.png" />
+    <Content Include="static\js\app.js" />
+    <Content Include="static\js\bootstrap.min.js" />
+    <Content Include="static\js\canvas.js" />
+    <Content Include="static\js\jquery.min.js" />
+    <Content Include="static\js\jquery.mobile-1.4.5.min.js" />
+    <Content Include="static\js\page.js" />
+    <Content Include="static\js\signature_pad.js" />
+    <Content Include="templates\index.html" />
+    <Content Include="templates\pad.html" />
+    <Content Include="templates\page.html" />
+    <Content Include="testFile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="index.py" />
+    <Compile Include="playground\owa.py" />
+    <Compile Include="playground\soc.py" />
+    <Compile Include="playground\tunein.py" />
+    <Compile Include="settings.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="playground" />
+    <Folder Include="static\" />
+    <Folder Include="static\css" />
+    <Folder Include="static\img" />
+    <Folder Include="static\js" />
+    <Folder Include="templates" />
+  </ItemGroup>
+  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+</Project>
