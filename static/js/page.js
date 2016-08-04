@@ -118,7 +118,7 @@ function initMessageShowTap(){
    $('#imgMessageNew').bind('tap',function() {       
        $('#messageNew').hide();       
        $('#messageShow').show();
-       $('#messageShowContent').html($('<img />').attr('src','/getMessages'));
+       $('#messageShowContent').html($('<img />').attr('src','/getMessages?t='+(new Date()).getTime()));
        
        
    });  

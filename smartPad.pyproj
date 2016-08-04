@@ -21,6 +21,7 @@
     <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="3.jpg" />
     <Content Include="playground\1.jpg" />
     <Content Include="playground\2.jpg" />
     <Content Include="playground\3.jpg" />
@@ -73,6 +74,7 @@
     <Compile Include="settings.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="messages\" />
     <Folder Include="playground" />
     <Folder Include="static\" />
     <Folder Include="static\css" />

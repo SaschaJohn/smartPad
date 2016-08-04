@@ -3,6 +3,7 @@ import hashlib
 import json
 import requests
 import os
+import glob
 
 from binascii import a2b_base64
 from flask import Flask, render_template, url_for, request, send_file
@@ -126,14 +127,15 @@ def save():
 	data = request.form.get("dataUrl")
 	filename = request.form.get("filename")
 	binary_data = a2b_base64(data)
-	fd = open(filename, 'wb')
+	fd = open(os.path.join('messages', filename), 'wb')
 	fd.write(binary_data)
 	fd.close()
 	return 'Ok'
 
 @app.route("/getMessages")
 def getMessages():
-	return send_file('testFile.png', mimetype='image/png')
+	newest = max(glob.iglob('messages/*.png'), key=os.path.getctime)
+	return send_file(newest , mimetype='image/png')
 
 @app.route("/getImage")
 def getImage():
