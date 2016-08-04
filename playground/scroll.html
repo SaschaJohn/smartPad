@@ -19,10 +19,6 @@ function fadeOut(){
 
 function changeImage(){
 
-    //$('#scrollimage').remove();
-    //$('#scroll').append($())
-    
-
     $('#scrollimage').css('height', '');
     $('#scrollimage').css('width', '');
 
@@ -33,6 +29,21 @@ function changeImage(){
         } else {
             $('#scrollimage').remove();
             $("#scroll").append(img);
+            $('#scrollimage').fadeIn();
+
+            var width = $('#scrollimage').height();
+            var height = $('#scrollimage').width();
+
+            if (this.naturalHeight > this.naturalWidth) {
+                $('img').css('height', '');
+                $('img').css('width', '100%');
+                upDown();
+
+            } else {
+                $('img').css('height', '100%');
+                $('img').css('width', '');
+                leftRight();
+            }
         }
     });
 
@@ -49,21 +60,7 @@ function changeImage(){
         $('#scrollimage').attr('src', i + '.jpg');
 
     }*/
-    $('#scrollimage').fadeIn();
-	
-	var width = $('#scrollimage').height();
-	var height = $('#scrollimage').width();
-
-	if (height > width) {
-	    $('img').css('height', '');
-	    $('img').css('width', '100%');
-	    upDown();
-
-	} else {
-	    $('img').css('height', '100%');
-	    $('img').css('width', '');
-	    leftRight();
-	}
+    
 	
 	
 	
