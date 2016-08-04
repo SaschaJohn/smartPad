@@ -34,6 +34,10 @@
     <Content Include="static\css\signature-pad.css" />
     <Content Include="static\css\style.css" />
     <Content Include="static\css\wetter.css" />
+    <Content Include="gallery\1.jpg" />
+    <Content Include="gallery\2.jpg" />
+    <Content Include="gallery\3.jpg" />
+    <Content Include="gallery\4.jpg" />
     <Content Include="static\img\blank.jpg" />
     <Content Include="static\img\btn-eldoradio.png" />
     <Content Include="static\img\btn-wdr5.png" />
@@ -74,6 +78,7 @@
     <Folder Include="static\css" />
     <Folder Include="static\img" />
     <Folder Include="static\js" />
+    <Folder Include="gallery\" />
     <Folder Include="templates" />
   </ItemGroup>
   <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />

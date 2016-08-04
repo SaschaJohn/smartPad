@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
 $(function() {
     var ele   = $('#scroll');
@@ -11,10 +11,20 @@ $(function() {
 	
     
 });
+
+function fadeOut(){
+    $('#scrollimage').fadeOut();
+    changeImage();
+}
+
 function changeImage(){
 
-    $('img').css('height', '');
-    $('img').css('width', '');
+    //$('#scrollimage').remove();
+    //$('#scroll').append($())
+    
+
+    $('#scrollimage').css('height', '');
+    $('#scrollimage').css('width', '');
 
     var imgSrc = $('#scrollimage').attr('src');
     if (!imgSrc) {
@@ -29,6 +39,7 @@ function changeImage(){
         $('#scrollimage').attr('src', i + '.jpg');
 
     }
+    $('#scrollimage').fadeIn();
 	
 	var width = $('#scrollimage').height();
 	var height = $('#scrollimage').width();
@@ -55,7 +66,7 @@ function upDown(){
 
 $('#scroll').animate({
     scrollTop: -$('#scroll').get(0).scrollHeight
-}, 10000, changeImage);
+}, 10000, fadeOut);
 }
 
 function leftRight() {
@@ -65,7 +76,7 @@ function leftRight() {
 
     $('#scroll').animate({
         scrollLeft: -$('#scroll').get(0).scrollWidth
-    }, 10000, changeImage);
+    }, 10000, fadeOut);
 }
 
 

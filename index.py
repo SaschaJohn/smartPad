@@ -2,6 +2,7 @@ import time
 import hashlib
 import json
 import requests
+import os
 
 from binascii import a2b_base64
 from flask import Flask, render_template, url_for, request, send_file
@@ -13,6 +14,13 @@ app.config.from_pyfile('settings.py')
 
 sonos = SoCo(app.config['SPEAKER_IP'])
 
+fileCount = -1
+
+#get gallery files, store in array
+files = []
+for (path, dirnames, filenames) in os.walk('gallery'):
+	files.extend(os.path.join(path, name) for name in filenames)
+#print(files[0])
 
 def gen_sig():
 	return hashlib.md5(
@@ -126,6 +134,14 @@ def save():
 @app.route("/getMessages")
 def getMessages():
 	return send_file('testFile.png', mimetype='image/png')
+
+@app.route("/getImage")
+def getImage():
+	global fileCount
+	fileCount+=1
+	if fileCount > len(files)-1:
+		fileCount=0
+	return send_file(files[fileCount], mimetype='image/png')
 
 	
 @app.route("/stop")
