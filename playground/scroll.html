@@ -26,7 +26,17 @@ function changeImage(){
     $('#scrollimage').css('height', '');
     $('#scrollimage').css('width', '');
 
-    var imgSrc = $('#scrollimage').attr('src');
+    var img = $("<img id='scrollimage' />").attr('src', 'http://localhost:5000/getImage?t='+(new Date()).getTime())
+    .on('load', function () {
+        if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
+            alert('broken image!');
+        } else {
+            $('#scrollimage').remove();
+            $("#scroll").append(img);
+        }
+    });
+
+    /*var imgSrc = $('#scrollimage').attr('src');
     if (!imgSrc) {
         $('#scrollimage').attr('src', '1.jpg');
     } else {
@@ -38,7 +48,7 @@ function changeImage(){
         }
         $('#scrollimage').attr('src', i + '.jpg');
 
-    }
+    }*/
     $('#scrollimage').fadeIn();
 	
 	var width = $('#scrollimage').height();
