@@ -10,6 +10,8 @@ $(document).ready(function() {
    
    initMessageShowTap();
    
+   changeImage();
+
    //close new message
    $('#messageShowClose').bind('tap',function() {
        $('#messageShow').hide();
@@ -139,4 +141,78 @@ function startTime() {
 function checkTime(i) {
     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
+}
+
+function fadeOut(){
+    $('#scrollimage').fadeOut();
+    changeImage();
+}
+
+function changeImage(){
+
+    $('#scrollimage').css('height', '');
+    $('#scrollimage').css('width', '');
+
+    var img = $("<img id='scrollimage' />").attr('src', 'http://localhost:5000/getImage?t='+(new Date()).getTime())
+    .on('load', function () {
+        if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
+            alert('broken image!');
+        } else {
+            $('#scrollimage').remove();
+            $("#scroll").append(img);
+            $('#scrollimage').fadeIn();
+
+            var width = $('#scrollimage').height();
+            var height = $('#scrollimage').width();
+
+            if (this.naturalHeight > this.naturalWidth) {
+                $('img').css('height', '');
+                $('img').css('width', '100%');
+                upDown();
+
+            } else {
+                $('img').css('height', '100%');
+                $('img').css('width', '');
+                leftRight();
+            }
+        }
+    });
+
+    /*var imgSrc = $('#scrollimage').attr('src');
+    if (!imgSrc) {
+        $('#scrollimage').attr('src', '1.jpg');
+    } else {
+        var i = imgSrc.replace(".jpg", "");
+
+        i = parseInt(i) + 1;
+        if (i > 2) {
+            i = 1;
+        }
+        $('#scrollimage').attr('src', i + '.jpg');
+
+    }*/
+    
+	
+	
+	
+}
+
+function upDown(){
+    $('#scroll').animate({
+        scrollTop: $('#scroll').get(0).scrollHeight
+    }, 12000);
+
+    $('#scroll').animate({
+        scrollTop: -$('#scroll').get(0).scrollHeight
+    }, 10000, fadeOut);
+}
+
+function leftRight() {
+    $('#scroll').animate({
+        scrollLeft: $('#scroll').get(0).scrollWidth
+    }, 12000);
+
+    $('#scroll').animate({
+        scrollLeft: -$('#scroll').get(0).scrollWidth
+    }, 10000, fadeOut);
 }
