@@ -108,6 +108,7 @@ padding-left:45px;
 
 div#scroll {
     overflow: hidden;
+    height: 515px;
     padding: 4px;
     margin-bottom: 20px;
 }

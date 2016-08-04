@@ -166,13 +166,13 @@ function changeImage(){
             var height = $('#scrollimage').width();
 
             if (this.naturalHeight > this.naturalWidth) {
-                $('img').css('height', '');
-                $('img').css('width', '100%');
+                $('#scrollimage').css('height', '');
+                $('#scrollimage').css('width', '100%');
                 upDown();
 
             } else {
-                $('img').css('height', '100%');
-                $('img').css('width', '');
+                $('#scrollimage').css('height', '100%');
+                $('#scrollimage').css('width', '');
                 leftRight();
             }
         }
