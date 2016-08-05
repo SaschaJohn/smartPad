@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{f0c12eae-7de9-49c4-b8ec-8b23ae1743b8}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>index.py</StartupFile>
+    <StartupFile>owa.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -72,6 +72,7 @@
     <Compile Include="playground\soc.py" />
     <Compile Include="playground\tunein.py" />
     <Compile Include="settings.py" />
+    <Compile Include="owa.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="messages\" />

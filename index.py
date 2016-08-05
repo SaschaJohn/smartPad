@@ -4,16 +4,22 @@ import json
 import requests
 import os
 import glob
+import owa
+import json
 
 from binascii import a2b_base64
-from flask import Flask, render_template, url_for, request, send_file
+from datetime import datetime, timedelta
+from flask import Flask, render_template, url_for, request, send_file, Response
 from soco import SoCo
+import flask
 
 app = Flask(__name__)
 
 app.config.from_pyfile('settings.py')
 
 sonos = SoCo(app.config['SPEAKER_IP'])
+
+
 
 fileCount = -1
 
@@ -137,6 +143,16 @@ def getMessages():
 	newest = max(glob.iglob('messages/*.png'), key=os.path.getctime)
 	return send_file(newest , mimetype='image/png')
 
+@app.route("/getAppointments")
+def getAppointments():
+	now = datetime.now()
+	events = owa.getEvents(now)
+	dat = json.dumps(events)
+	resp = Response(response=dat,
+	status=200, \
+	mimetype="application/json")
+	return(resp)
+
 @app.route("/getImage")
 def getImage():
 	global fileCount
@@ -154,4 +170,4 @@ def stop():
 	return 'Ok'
 	
 if __name__ == '__main__':
-	app.run(debug=True)
+	app.run(host= '0.0.0.0',debug=True)
