@@ -5,7 +5,8 @@ html {
 
 body {
     background-color: #000000;
-    position: fixed;    
+    position: fixed;
+    font-family: sans-serif;    
 }
 
 .box {
@@ -59,6 +60,11 @@ body {
 	font-family: sans-serif;
 	font-size:70px;
 	
+}
+
+#appointments {
+	text-align: left;	
+    font-size: 12px;
 }
 
 #main {

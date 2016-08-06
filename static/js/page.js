@@ -2,6 +2,7 @@ var messageBlinkId;
 
 $(document).ready(function() {	
    startTime();
+   getAppointments();
    //initCanvas();
    canvas   = document.getElementById('can');
    signaturePad = new SignaturePad(canvas);
@@ -216,3 +217,42 @@ function leftRight() {
         scrollLeft: -$('#scroll').get(0).scrollWidth
     }, 10000, fadeOut);
 }
+
+function getAppointments() {
+    $.ajax({
+        cache: false,
+        url: "/getAppointments",
+        dataType: "json",
+        success: function(data) {
+            console.log("success");
+            $("#appointments").empty();
+            var formatedText = "";
+            var beginDate = "";
+            $.each(data, function (i, item) {
+                var begin = data[i][0];
+                var end = data[i][1];
+                var subject = data[i][2];
+                var b = begin.split(" ");
+                var bDate = "";
+                if (beginDate == b[0]) {
+                   
+                } else {
+                    bDate = b[0]+"<br>";
+                }
+
+                beginDate = b[0];
+                var c = end.split(" ");
+                formatedText += bDate + b[1] + "&nbsp;-&nbsp;" + c[1] + "&nbsp" + subject + "<br>";
+
+            });
+            $("#appointments").append(formatedText);
+            },
+        error: function(data) {
+            console.log("error")
+            $("#appointments").empty();
+            $("#appointments").append("Error fetching appointments");
+            }
+    });
+    var u = setTimeout(getAppointments, 300000); //5Minutes = 300s
+}
+

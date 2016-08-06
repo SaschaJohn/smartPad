@@ -149,9 +149,7 @@ def getAppointments():
 	try:
 		events = owa.getEvents(now)
 		dat = json.dumps(events)
-		resp = Response(response=dat,
-		status=200, \
-		mimetype="application/json")
+		resp = Response(response=dat,status=200,mimetype="application/json")
 		return(resp)
 	except:
 		return jsonify("success=False"), 400
