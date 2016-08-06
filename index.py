@@ -1,3 +1,4 @@
+from __future__ import print_function # In python 2.7
 import time
 import hashlib
 import json
@@ -8,6 +9,10 @@ import owa
 import json
 import babel.dates
 import sqlite3
+import sys
+import logging
+from watchdog.observers import Observer
+from watchdog.events import PatternMatchingEventHandler
 
 from binascii import a2b_base64
 from datetime import datetime, timedelta
@@ -204,6 +209,11 @@ def getImage():
 		fileCount=0
 	return send_file(files[fileCount], mimetype='image/png')
 
+@app.route("/getImageList")
+def getImageList():
+	global files
+	return jsonify(files)
+
 @app.route("/getDate")
 def getDate():
 	now=datetime.now()
@@ -218,6 +228,43 @@ def stop():
 	sonos = SoCo(target)
 	sonos.pause()    
 	return 'Ok'
+
+class MyHandler(PatternMatchingEventHandler):
+	patterns=["*.jpg"]
+
+	def process(self, event):
+		"""
+		event.event_type
+			'modified' | 'created' | 'moved' | 'deleted'
+		event.is_directory
+			True | False
+		event.src_path
+			path/to/observed/file
+		"""
+		global files
+		files = []
+		for (path, dirnames, filenames) in os.walk('gallery'):
+			files.extend(os.path.join(path, name) for name in filenames)
+	
+	def on_deleted(self, event):
+		self.process(event)	
+
+	def on_created(self, event):
+		self.process(event)
 	
 if __name__ == '__main__':
+	logging.basicConfig(level=logging.INFO,
+						format='%(asctime)s - %(message)s',
+						datefmt='%Y-%m-%d %H:%M:%S')
+	path = './gallery'
+	event_handler = MyHandler()
+	observer = Observer()
+	observer.schedule(event_handler, path, recursive=True)
+	observer.start()
 	app.run(host= '0.0.0.0',debug=True)
+	try:
+		while True:
+			time.sleep(1)
+	except KeyboardInterrupt:
+		observer.stop()
+	observer.join()
