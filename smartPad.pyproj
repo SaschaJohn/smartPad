@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{f0c12eae-7de9-49c4-b8ec-8b23ae1743b8}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>owa.py</StartupFile>
+    <StartupFile>index.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>

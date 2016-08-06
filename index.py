@@ -9,7 +9,7 @@ import json
 
 from binascii import a2b_base64
 from datetime import datetime, timedelta
-from flask import Flask, render_template, url_for, request, send_file, Response
+from flask import Flask, render_template, url_for, request, send_file, Response, jsonify
 from soco import SoCo
 import flask
 
@@ -146,12 +146,15 @@ def getMessages():
 @app.route("/getAppointments")
 def getAppointments():
 	now = datetime.now()
-	events = owa.getEvents(now)
-	dat = json.dumps(events)
-	resp = Response(response=dat,
-	status=200, \
-	mimetype="application/json")
-	return(resp)
+	try:
+		events = owa.getEvents(now)
+		dat = json.dumps(events)
+		resp = Response(response=dat,
+		status=200, \
+		mimetype="application/json")
+		return(resp)
+	except:
+		return jsonify("success=False"), 400
 
 @app.route("/getImage")
 def getImage():
