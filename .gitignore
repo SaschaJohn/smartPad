@@ -3,3 +3,6 @@
 settings.py
 .vs
 .settings.py.un~
+messages/*.png
+*.un~
+*~

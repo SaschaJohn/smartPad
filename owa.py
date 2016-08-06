@@ -16,7 +16,7 @@ def getEvents(date):
 	returnValue = list()
 	evt= service.calendar().list_events(
 	start=timezone("CET").localize(datetime(date.year, date.month, date.day, 1, 0, 0)),
-	end=timezone("CET").localize(datetime(date.year, date.month, date.day, 23, 0, 0)),
+	end=timezone("CET").localize(datetime(tommorow.year, tommorow.month, tommorow.day, 23, 0, 0)),
 	details=True
 	)
 	for event in evt.events:

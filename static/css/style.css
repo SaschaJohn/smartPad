@@ -31,7 +31,7 @@ body {
 	padding-right: 20px;
 	color: #FFFFFF;	
 	width: 190px;
-	height: 230px;   
+	height: 372px;   
 	margin-bottom: 15px;
 }
 
@@ -56,9 +56,13 @@ body {
 
 #time {
 	text-align: center;
-	background-color: #000000;
-	font-family: sans-serif;
 	font-size:70px;
+	
+}
+
+#date {
+	text-align: center;
+	font-size:25px;
 	
 }
 

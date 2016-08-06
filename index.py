@@ -6,10 +6,12 @@ import os
 import glob
 import owa
 import json
+import babel.dates
+import sqlite3
 
 from binascii import a2b_base64
 from datetime import datetime, timedelta
-from flask import Flask, render_template, url_for, request, send_file, Response, jsonify
+from flask import Flask, render_template, url_for, request, send_file, Response, jsonify, g
 from soco import SoCo
 import flask
 
@@ -19,8 +21,6 @@ app.config.from_pyfile('settings.py')
 
 sonos = SoCo(app.config['SPEAKER_IP'])
 
-
-
 fileCount = -1
 
 #get gallery files, store in array
@@ -28,6 +28,20 @@ files = []
 for (path, dirnames, filenames) in os.walk('gallery'):
 	files.extend(os.path.join(path, name) for name in filenames)
 #print(files[0])
+
+DATABASE = 'messages.db'
+
+def get_db():
+	db = getattr(g, '_database', None)
+	if db is None:
+		db = g._database = sqlite3.connect(DATABASE)
+	return db
+
+@app.teardown_appcontext
+def close_connection(exception):
+	db = getattr(g, '_database', None)
+	if db is not None:
+		db.close()
 
 def gen_sig():
 	return hashlib.md5(
@@ -132,6 +146,11 @@ def tune():
 def save():
 	data = request.form.get("dataUrl")
 	filename = request.form.get("filename")
+	db = get_db()
+	cur = db.cursor()
+	cur.execute("INSERT INTO message VALUES ('{file}', 0)".\
+		format(file=filename))
+	db.commit()
 	binary_data = a2b_base64(data)
 	fd = open(os.path.join('messages', filename), 'wb')
 	fd.write(binary_data)
@@ -142,6 +161,29 @@ def save():
 def getMessages():
 	newest = max(glob.iglob('messages/*.png'), key=os.path.getctime)
 	return send_file(newest , mimetype='image/png')
+
+@app.route("/checkUnread")
+def checkUnread():
+	db = get_db()
+	cur = db.cursor()
+	cur.execute("SELECT * FROM message WHERE read=0")
+	id_exists = cur.fetchall()
+	if id_exists:
+		return jsonify(True)
+	else:
+		return jsonify(False)
+
+@app.route("/getUnread")
+def getUnread():
+	db = get_db()
+	cur = db.cursor()
+	cur.execute("SELECT file FROM message WHERE read=0 LIMIT 1")
+	id_exists = cur.fetchone()
+	newest = id_exists[0];
+	cur.execute("UPDATE message set read=1 where file='{file}'".\
+		format(file=newest))
+	db.commit()
+	return send_file('messages/'+newest , mimetype='image/png')
 
 @app.route("/getAppointments")
 def getAppointments():
@@ -162,6 +204,13 @@ def getImage():
 		fileCount=0
 	return send_file(files[fileCount], mimetype='image/png')
 
+@app.route("/getDate")
+def getDate():
+	now=datetime.now()
+	a = list()
+	a.append(babel.dates.format_date(now, 'd. MMMM yyyy', locale='de_DE'))
+	a.append(babel.dates.format_date(now, 'd. MMMM yyyy', locale='pl_PL'))
+	return jsonify(a)
 	
 @app.route("/stop")
 def stop():

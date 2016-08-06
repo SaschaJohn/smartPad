@@ -3,6 +3,7 @@ var messageBlinkId;
 $(document).ready(function() {	
    startTime();
    getAppointments();
+   getDate();
    //initCanvas();
    canvas   = document.getElementById('can');
    signaturePad = new SignaturePad(canvas);
@@ -13,11 +14,39 @@ $(document).ready(function() {
    
    changeImage();
 
+   $.ajax({
+    cache: false,
+       url: "/checkUnread",
+           dataType: "json",
+           success: function(data) {
+               if (data == true) {
+                   $('#messageNew').show();
+                   messageBlinkId = setInterval(messageBlink, 1500);;
+               }
+           },
+               error: function (data) {
+                   }
+        });
+
    //close new message
    $('#messageShowClose').bind('tap',function() {
        $('#messageShow').hide();
-       window.clearInterval(messageBlinkId);    
-       $('#imgMessageNew').remove();  
+
+       $.ajax({
+           cache: false,
+           url: "/checkUnread",
+           dataType: "json",
+           success: function (data) {
+               if (data == false) {
+                   window.clearInterval(messageBlinkId);
+                   $('#imgMessageNew').remove();
+               }
+           },
+           error: function (data) {
+           }
+        });
+
+       
    });   
    
    
@@ -119,7 +148,7 @@ function initMessageShowTap(){
    $('#imgMessageNew').bind('tap',function() {       
        $('#messageNew').hide();       
        $('#messageShow').show();
-       $('#messageShowContent').html($('<img />').attr('src','/getMessages?t='+(new Date()).getTime()));
+       $('#messageShowContent').html($('<img />').attr('src','/getUnread?t='+(new Date()).getTime()));
        
        
    });  
@@ -218,6 +247,29 @@ function leftRight() {
     }, 10000, fadeOut);
 }
 
+function getDate() {
+    $.ajax({
+        cache: false,
+        url: "/getDate",
+        dataType: "json",
+        success: function(data) {
+            $("#date").empty();
+            var formatedText = "";
+            $.each(data, function (i, item) {
+                formatedText += data[i] + "<br><br>";
+
+            });
+            $("#date").append(formatedText);
+            },
+        error: function(data) {
+            console.log("error")
+            $("#date").empty();
+            $("#date").append("Error fetching date");
+            }
+    });
+    var u = setTimeout(getDate, 30000); //5Minutes = 300s
+}
+
 function getAppointments() {
     $.ajax({
         cache: false,
@@ -237,7 +289,7 @@ function getAppointments() {
                 if (beginDate == b[0]) {
                    
                 } else {
-                    bDate = b[0]+"<br>";
+                    bDate = "<br><b>"+b[0]+"</b><br><br>";
                 }
 
                 beginDate = b[0];
