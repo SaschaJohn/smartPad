@@ -4,3 +4,5 @@ pip install soco
 pip install wheel
 pip install lxml //http://www.lfd.uci.edu/~gohlke/pythonlibs/#lxml
 pip install pyexchange
+pip install watchdog
+pip install babel
