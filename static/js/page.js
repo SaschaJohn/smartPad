@@ -71,7 +71,7 @@ $(document).ready(function() {
 			return;
 		}
 		
-		$.ajax('http://localhost:5000/tune?target='+ip+'&station='+station);
+		$.ajax('tune?target='+ip+'&station='+station);
 		
    });
    
@@ -95,7 +95,7 @@ $(document).ready(function() {
         dataUrl = dataUrl.replace('data:image/png;base64,','');
         ctx = canvas.getContext("2d");
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        $.post( "http://localhost:5000/save", { dataUrl: dataUrl, filename: filename} );
+        $.post( "save", { dataUrl: dataUrl, filename: filename} );
 		$('#message').hide();
         $('#messageNew').html('<img id="imgMessageNew" style="cursor:pointer;" height="100" width="100" src="static/img/message.png" />');
         initMessageShowTap();
@@ -138,7 +138,7 @@ $(document).ready(function() {
 			return;
 		}
 		
-		$.ajax('http://localhost:5000/stop?target='+ip);
+		$.ajax('stop?target='+ip);
 		
    });
 });
@@ -183,7 +183,7 @@ function changeImage(){
     $('#scrollimage').css('height', '');
     $('#scrollimage').css('width', '');
 
-    var img = $("<img id='scrollimage' />").attr('src', 'http://localhost:5000/getImage?t='+(new Date()).getTime())
+    var img = $("<img id='scrollimage' />").attr('src', 'getImage?t='+(new Date()).getTime())
     .on('load', function () {
         if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
             alert('broken image!');
