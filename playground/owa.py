@@ -1,6 +1,6 @@
 import sys
+from importlib import reload
 reload(sys)
-sys.setdefaultencoding('utf-8')
 from pyexchange import Exchange2010Service, ExchangeNTLMAuthConnection
 from pytz import timezone
 from datetime import datetime, timedelta
@@ -35,14 +35,14 @@ eventsTommorow = service.calendar().list_events(
     details=True
 )
 for event in events.events:
-    print "{start} {stop} - {subject}".format(
+    print("{start} {stop} - {subject}".format(
         start=event.start,
         stop=event.end,
         subject=event.subject
-    )
+    ))
 for event in eventsTommorow.events:
-    print "{start} {stop} - {subject}".format(
+    print("{start} {stop} - {subject}".format(
         start=event.start,
         stop=event.end,
         subject=event.subject
-    )
+    ))
