@@ -6,6 +6,7 @@ Unless required by applicable law or agreed to in writing, software?distributed 
 """
 import requests
 from requests_ntlm import HttpNtlmAuth
+from requests.auth import HTTPBasicAuth
 
 import logging
 
@@ -39,7 +40,7 @@ class ExchangeNTLMAuthConnection(ExchangeBaseConnection):
 
     log.debug(u'Constructing password manager')
 
-    self.password_manager = HttpNtlmAuth(self.username, self.password)
+    self.password_manager = HTTPBasicAuth(self.username, self.password)
 
     return self.password_manager
 
