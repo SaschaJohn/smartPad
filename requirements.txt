@@ -1,8 +1,7 @@
-python -m pip install --upgrade pip
-pip install flask
-pip install soco
-pip install wheel
-pip install lxml //http://www.lfd.uci.edu/~gohlke/pythonlibs/#lxml
-pip install pyexchange
-pip install watchdog
-pip install babel
+flask
+soco
+wheel
+tzlocal
+pyexchange
+watchdog
+babel
