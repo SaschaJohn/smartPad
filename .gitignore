@@ -1,6 +1,5 @@
 .DS_Store
 *.pyc
-settings.py
 .vs
 .settings.py.un~
 messages/*.png
