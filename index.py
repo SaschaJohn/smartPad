@@ -181,8 +181,8 @@ def getImageList():
 def getDate():
 	now=datetime.now()
 	a = list()
-	a.append(babel.dates.format_date(now, 'd. MMMM yyyy', locale='de_DE'))
-	a.append(babel.dates.format_date(now, 'd. MMMM yyyy', locale='pl_PL'))
+	a.append(babel.dates.format_date(now, 'd. MMMM', locale='pl_PL'))
+	a.append(babel.dates.format_date(now, 'd. MMMM yyyy', locale='de_DE'))	
 	return jsonify(a)
 	
 @app.route("/stop")
