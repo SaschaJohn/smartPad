@@ -256,7 +256,7 @@ function getDate() {
             $("#date").empty();
             var formatedText = "";
             $.each(data, function (i, item) {
-                formatedText += data[i] + "<br><br>";
+                formatedText += data[i] + "<br>";
 
             });
             $("#date").append(formatedText);
